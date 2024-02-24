@@ -1,6 +1,6 @@
 # Fibonacci Sequence
 
-import sys;
+import sys
 
 print(
     '''
@@ -9,7 +9,7 @@ print(
     The sequence continues forever:
     0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987...
     '''
-);
+)
 
 while True:
     # Main program loop.
@@ -67,7 +67,9 @@ while True:
         if fibNumbersCalculated == nth:
             print()
             print()
-            print('The #', fibNumbersCalculated, ' Fibonnaci number is ', nextNumber, '.', sep='')
+
+            print('The #', fibNumbersCalculated, ' Fibonacci number is ', nextNumber, '.', sep='')
+
             break
 
         # Print a comma in between the sequence numbers:
@@ -75,4 +77,6 @@ while True:
 
         # Shift the last two numbers:
         secondLastNumber = lastNumber
-        lastNumber = nextNumber;
+
+        lastNumber = nextNumber
+

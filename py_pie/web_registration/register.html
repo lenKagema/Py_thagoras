@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-width=1.0">
+        <title>Python Registration Form</title>
+        <style>
+            * {
+                text-align: center;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+            label {
+                margin-block: 1em;
+            }
+            .gender {
+                accent-color: cyan;
+            }
+            .submit {
+                border-radius: 2px solid black;
+                width: 5em;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <form action="./register.py" method="post">
+            <h3>Registration Form</h3>
+            <label for="username">Name:
+                <input id="username" type="text" name="username">
+            </label>
+            <label>Gender:
+                <input class="gender" type="radio" name="gender" value="Male" checked="checked">Male
+                <input class="gender" type="radio" name="gender" value="Female">Female
+            </label>
+            <label>Choose a course:
+                <select name="courses">
+                    <option value="1"></option>
+                    <option value="2">Data Science</option>
+                    <option value="3">Python with Flask</option>
+                </select>
+            </label>
+            <label for="mobile">Mobile number:
+                <input id="mobile" type="text" name="mobile">
+            </label>
+            <input class="submit" type="submit" name="submit" value="Submit"/>
+        </form>
+    </body>
+</html>
