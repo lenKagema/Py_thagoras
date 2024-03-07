@@ -1,0 +1,10 @@
+<div class="col-10 mt-4 mb-4">
+    <h4>{{ job.title }}</h4>
+    <b>Location: </b>{{ job.location }}<br/>
+    {% if job.salary %}
+        <b>Salary: </b>{{ job.salary }}<br/>
+    {% endif %}
+</div>
+<div class="col-2">
+    <button type="button" class="btn btn-outline-primary float-right align-middle">Apply</button>
+</div>
