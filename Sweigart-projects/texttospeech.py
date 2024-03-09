@@ -20,7 +20,7 @@ print()
 print('Enter the text to speak, or QUIT to quit')
 while True:
     text = input('> ')
-    if text.upper == "QUIT":
+    if text.upper() == "QUIT":
         print('Thanks for playing!')
         sys.exit()
 
