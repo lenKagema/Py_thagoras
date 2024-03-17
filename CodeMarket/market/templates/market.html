@@ -4,7 +4,7 @@
 Market Page
 {% endblock %}
 
-{% block content %}
+{% block header %}
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Flask Market</a>
@@ -19,14 +19,14 @@ Market Page
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ url_for('market_page') }}">
                         Market <span class="sr-only">(current)</span>
                     </a>
                 </li>
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="{{ url_for('login_page') }}">Login</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('register_page') }}">
@@ -36,9 +36,10 @@ Market Page
             </ul>
         </div>
     </nav>
-    <h1>Market Page</h1>
 </header>
+{% endblock %}
 
+{% block content %}
 <table class="table table-hover table-dark">
     <thead>
     <tr>
@@ -48,29 +49,36 @@ Market Page
         <th scope="col">Price</th>
         <th scope="col">Options</th>
     </tr>
+<!--    <tr>-->
+<!--        <th scope="col">ID</th>-->
+<!--        <th scope="col">UserName</th>-->
+<!--        <th scope="col">Email Address</th>-->
+<!--        <th scope="col">Password</th>-->
+<!--        <th scope="col">Budget</th>-->
+<!--    </tr>-->
     </thead>
     <tbody>
-<!--    {% for item in items %}-->
-<!--    <tr>-->
-<!--        <td>{{ item.id }}</td>-->
-<!--        <td>{{ item.name }}</td>-->
-<!--        <td>{{ item.barcode }}</td>-->
-<!--        <td>${{ item.price }}</td>-->
-<!--        <td>-->
-<!--            <button class="btn btn-outline btn-info">More Info</button>-->
-<!--            <button class="btn btn-outline btn-success">Purchase this item</button>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--    {% endfor %}-->
-    {% for user in users %}
+    {% for item in items %}
     <tr>
-        <td>{{ user.id }}</td>
-        <td>{{ user.username }}</td>
-        <td>{{ user.email_address }}</td>
-        <td>{{ user.password_hash }}</td>
-        <td>{{ user.budget }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.barcode }}</td>
+        <td>${{ item.price }}</td>
+        <td>
+            <button class="btn btn-outline btn-info">More Info</button>
+            <button class="btn btn-outline btn-success">Purchase this item</button>
+        </td>
     </tr>
     {% endfor %}
+<!--    {% for user in users %}-->
+<!--    <tr>-->
+<!--        <td>{{ user.id }}</td>-->
+<!--        <td>{{ user.username }}</td>-->
+<!--        <td>{{ user.email_address }}</td>-->
+<!--        <td>{{ user.password_hash }}</td>-->
+<!--        <td>{{ user.budget }}</td>-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
     </tbody>
 </table>
 {% endblock %}
