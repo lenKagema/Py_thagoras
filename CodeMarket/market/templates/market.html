@@ -50,16 +50,25 @@ Market Page
     </tr>
     </thead>
     <tbody>
-    {% for item in items %}
+<!--    {% for item in items %}-->
+<!--    <tr>-->
+<!--        <td>{{ item.id }}</td>-->
+<!--        <td>{{ item.name }}</td>-->
+<!--        <td>{{ item.barcode }}</td>-->
+<!--        <td>${{ item.price }}</td>-->
+<!--        <td>-->
+<!--            <button class="btn btn-outline btn-info">More Info</button>-->
+<!--            <button class="btn btn-outline btn-success">Purchase this item</button>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
+    {% for user in users %}
     <tr>
-        <td>{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.barcode }}</td>
-        <td>${{ item.price }}</td>
-        <td>
-            <button class="btn btn-outline btn-info">More Info</button>
-            <button class="btn btn-outline btn-success">Purchase this item</button>
-        </td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.email_address }}</td>
+        <td>{{ user.password_hash }}</td>
+        <td>{{ user.budget }}</td>
     </tr>
     {% endfor %}
     </tbody>
