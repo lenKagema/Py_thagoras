@@ -2,6 +2,7 @@ from flask import render_template, redirect, url_for, flash, get_flashed_message
 from . import app, db
 from .models import Item, User
 from .forms import RegisterForm, LoginForm
+from flask_login import login_user
 
 
 @app.route('/')
@@ -28,7 +29,7 @@ def register_page():
         return redirect(url_for('market_page'))
     if form.errors != {}:
         for err_msg in form.errors.values():
-            flash(f'There was an error with creating a user: {err_msg}')
+            flash(f'There was an error with creating a user: {err_msg}', category='danger')
 
     return render_template('register.html', form=form)
 
@@ -36,4 +37,13 @@ def register_page():
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
     form = LoginForm()
+    if form.validate_on_submit():
+        attempted_user = User.query.get(form.username.data).first()
+        if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
+            login_user(attempted_user)
+            flash(f'Success! You are logged in as: {attempted_user.username}', category='success')
+            return redirect(url_for('market_page'))
+        else:
+            flash('Username and password do not match! Please try again', category='danger')
+
     return render_template('login.html', form=form)
