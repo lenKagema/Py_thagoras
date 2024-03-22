@@ -9,6 +9,8 @@ app.config['SECRET_KEY'] = 'c7fbc86d44bc46d8862d7836'
 db = SQLAlchemy(app)
 bcrypt = Bcrypt()
 login_manager = LoginManager(app)
+login_manager.login_view = 'login_page'
+login_manager.login_message_category = 'info'
 
 from . import models
 
